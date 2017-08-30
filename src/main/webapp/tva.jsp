@@ -13,7 +13,7 @@
     <h:messages />
     <h:form >
     	ht: <h:inputText value="#{tvaBean.ht}" /> <br/>
-    	taux: <h:inputText value="#{tvaBean.taux}" />% <br/>
+    	taux(en%): <h:inputText value="#{tvaBean.taux}" /> <br/>
     	<h:commandButton value="calcul tva" action="#{tvaBean.calculer}" />
     </h:form>
     tva: ${tvaBean.tva} <br/>
