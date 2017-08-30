@@ -1,44 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://java.sun.com/xml/ns/javaee"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
-	version="3.0">
-	<display-name>tpSpringJsf</display-name>
-
-	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<!-- chemin(s) vers fichier(s) spring à charger
-		     au démarrage dans tomcat -->
-		<param-value>classpath*:/configSpring.xml,classpath:/configSpringWeb.xml</param-value>
-	    <!-- si prefixe en classpath*: le fichier de config est 
-	    recherché dans les sous ".jar" (dépendances maven) -->
-	</context-param>
-	
-	<!-- la classe prédéfinie ContextLoaderListener
-	     de spring-web.jar permet de charger en mémoire
-	     les composants spring configurés
-	     dès le démarrage de l'appli dans tomcat -->
-	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener>
-
-	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
-		<welcome-file>index.htm</welcome-file>
-		<welcome-file>index.jsp</welcome-file>
-		<welcome-file>default.html</welcome-file>
-		<welcome-file>default.htm</welcome-file>
-		<welcome-file>default.jsp</welcome-file>
-	</welcome-file-list>
-	<session-config>
-		<session-timeout>2</session-timeout>
-	</session-config>
-	<servlet>
-		<servlet-name>ServletAdd</servlet-name>
-		<servlet-class>com.sopra.web.servlet.ServletAdd</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>ServletAdd</servlet-name>
-		<url-pattern>/ServletAdd</url-pattern>
-	</servlet-mapping>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+  <display-name>tpSpringJsf</display-name>
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>classpath*:/configSpring.xml,classpath:/configSpringWeb.xml</param-value>
+  </context-param>
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <session-config>
+    <session-timeout>2</session-timeout>
+  </session-config>
+  <servlet>
+    <servlet-name>ServletAdd</servlet-name>
+    <servlet-class>com.sopra.web.servlet.ServletAdd</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletAdd</servlet-name>
+    <url-pattern>/ServletAdd</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Faces Servlet</servlet-name>
+    <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Faces Servlet</servlet-name>
+    <url-pattern>*.jsf</url-pattern>
+  </servlet-mapping>
 </web-app>
