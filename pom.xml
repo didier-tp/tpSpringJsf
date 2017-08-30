@@ -1,0 +1,77 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.sopra</groupId>
+  <artifactId>tpSpringJsf</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  
+  <properties>
+		<spring.version>4.3.10.RELEASE</spring.version>
+		<!-- <spring.version>4.3.9.RELEASE</spring.version> -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+  
+  <dependencies>
+  
+  <dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		
+  <!-- dependance vers le sous projet maven "resaSpring"
+      qui comporte toute la partie "invisible" / "back"
+      (service spring + DAO + lien database)
+      Le fichier resaSpring.jar sera accessible
+      s'il a été construit et recopié dans ...m2/repository
+      via la commande run as / maven install
+       -->		
+  <dependency>
+			<groupId>com.sopra.resa</groupId>
+			<artifactId>resaSpring</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+  </dependency>
+  
+  <dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>javax.servlet-api</artifactId>
+    <version>3.1.0</version>
+    <scope>provided</scope> <!-- dejà fourni par tomcat
+                                 mais nécessaire pour compilation -->
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/javax.servlet.jsp/javax.servlet.jsp-api -->
+<dependency>
+    <groupId>javax.servlet.jsp</groupId>
+    <artifactId>javax.servlet.jsp-api</artifactId>
+    <version>2.3.1</version>
+    <scope>provided</scope> <!-- dejà fourni par tomcat -->
+</dependency>
+
+<dependency>
+    <groupId>jstl</groupId>
+    <artifactId>jstl</artifactId>
+    <version>1.2</version>
+</dependency>
+
+  </dependencies>
+  
+   <build> 
+     <finalName>tpSpringJsf</finalName> <!-- .war -->
+     <plugins>
+		   <!-- configuration (eventuellement heritee) pour compilation en java 7 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.2</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+
+		</plugins>
+  </build>
+  
+  
+</project>
