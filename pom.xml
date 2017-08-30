@@ -13,6 +13,8 @@
   
   <dependencies> 
   
+  <!-- manque encore jsf -->
+  
   <dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
