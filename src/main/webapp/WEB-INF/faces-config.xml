@@ -5,5 +5,19 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd"
     version="2.1">
+    
+    <application>
+    <!-- cette config (en plus de celle de web.xml) 
+    permet d'accéder facilement aux beans "spring"
+    depuis un bean "JSF" par injection de dépendance.
+    
+    Lorsque JSF recherchera un bean un nom logique
+    il va d'abord rechercher des beans JSF et s'il trouve
+    pas il va rechercher dans les beans spring
+    -->
+     <el-resolver>
+       org.springframework.web.jsf.el.SpringBeanFacesELResolver
+     </el-resolver>
+    </application>
 
 </faces-config>

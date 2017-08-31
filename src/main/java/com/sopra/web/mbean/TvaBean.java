@@ -13,9 +13,8 @@ public class TvaBean {
 	private Double ttc;
 	
 	public TvaBean(){
-		super();//pour un homme ordinaire l'essence c'est super!!!
+		super();
 	}
-	
 	public String calculer(){
 		String suite=null;
 		tva = ht * (taux / 100);

@@ -5,19 +5,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>tva</title>
+<title>Insert title here</title>
 </head>
 <body>
-<h2>tva (version jsf)</h2>
 <f:view>
-    <h:messages />
-    <h:form >
-    	ht: <h:inputText value="#{tvaBean.ht}" /> <br/>
-    	taux(en%): <h:inputText value="#{tvaBean.taux}" /> <br/>
-    	<h:commandButton value="calcul tva" action="#{tvaBean.calculer}" />
-    </h:form>
-    tva: ${tvaBean.tva} <br/>
-    ttc: <h:outputText value="#{tvaBean.ttc}" />
+<h:form>
+   username: <h:inputText value="#{loginBean.username}" /> <br/>
+   password: <h:inputText value="#{loginBean.password}" /> <br/>
+  <h:commandButton value="login" 
+        action="#{loginBean.login}" />
+</h:form>
+   message: <h:outputText value="#{loginBean.message}" /> <br/>
 </f:view>
 </body>
 </html>
