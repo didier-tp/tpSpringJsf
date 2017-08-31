@@ -37,12 +37,12 @@ public class LoginBean {
 		  serviceClient.findClientByName(this.username);
 		
 		if(password.equals("pwd"+username)){
-			message="utilisateur connecté";
+			message="utilisateur théoriquement connecté";
 			suite = "menuClient";
 			//menuClient.jsp (ou .xhtml)
 			//= menu pour client authentifié 
 		}else {
-			message = "mauvais mot de passe ou ...";
+			message = "mauvais mot de passe (pas égal à pwd+username)";
 		}
 		return suite;
 	}

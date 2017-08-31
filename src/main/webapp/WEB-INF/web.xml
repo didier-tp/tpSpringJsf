@@ -16,9 +16,19 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
+  
   <session-config>
     <session-timeout>2</session-timeout>
   </session-config>
+  
+  <error-page>    
+     <exception-type>javax.faces.application.ViewExpiredException</exception-type>    
+     <location>/index.html</location>    
+     <!-- ou vers /welcome.jsf ou … --> 
+  </error-page>
+  
+  
   <servlet>
     <servlet-name>ServletAdd</servlet-name>
     <servlet-class>com.sopra.web.servlet.ServletAdd</servlet-class>
@@ -36,4 +46,15 @@
     <servlet-name>Faces Servlet</servlet-name>
     <url-pattern>*.jsf</url-pattern>
   </servlet-mapping>
+  
+  
+ <context-param>
+    <param-name>facelets.REFRESH_PERIOD</param-name>  
+    <param-value>2</param-value> 
+</context-param> 
+<context-param>  
+    <param-name>facelets.DEVELOPMENT</param-name>  
+    <param-value>true</param-value> 
+</context-param>
+ 
 </web-app>

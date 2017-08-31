@@ -40,17 +40,17 @@ public class ServletTva extends HttpServlet {
 		calculTvaObj.setTaux(taux);
 		calculTvaObj.setTva(ht * taux / 100);
 		calculTvaObj.setTtc(ht+calculTvaObj.getTva());
-		//création de l'objet de redirection:
+		//crï¿½ation de l'objet de redirection:
 		RequestDispatcher rd = this.getServletContext()
-				.getRequestDispatcher("/" + "affTva.jsp");
-		//stocker dans request un access à calculTva
+				.getRequestDispatcher("/old_sans_jsf/" + "affTva.jsp");
+		//stocker dans request un access ï¿½ calculTva
 		//ulterieurement accessible dans page jsp:
 		request.setAttribute("calculTva", calculTvaObj);
 		//ou bien
 		// HttpSession session = request.getSession();
 		// session.setAttribute("calculTva", calculTvaObj);
 		
-		//redirection (coté serveur) du servlet vers page jsp:
+		//redirection (cotï¿½ serveur) du servlet vers page jsp:
 		rd.forward(request, response);
 	}
 

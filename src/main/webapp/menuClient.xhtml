@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="templates/common.xhtml">
+	
+	<ui:define name="title">menuClient</ui:define>
+	
+	<ui:define name="content">
+	
+   message: <i><h:outputText value="#{loginBean.message}" /></i> <br/>
+   username : <b><h:outputText value="#{loginBean.username}" /></b> <br/>
+   
+   <h3>liste des clients dont le nom correspond à username:</h3>
+   <h:dataTable border="1"
+     var="c" value="#{loginBean.listeCli}">
+      <h:column><f:facet name="header">
+              <f:verbatim>idClient</f:verbatim></f:facet>
+           <h:outputText value="#{c.idClient}"/>
+       </h:column>
+       <h:column><f:facet name="header">
+              <f:verbatim>nom</f:verbatim></f:facet>
+           <h:outputText value="#{c.nom}"/>
+       </h:column>
+        <h:column>
+           <f:facet name="header">
+              <f:verbatim>prenom</f:verbatim></f:facet>
+           <h:outputText value="#{c.prenom}"/>
+       </h:column>
+   </h:dataTable>
+    
+	</ui:define>
+	
+</ui:composition>
+</html>

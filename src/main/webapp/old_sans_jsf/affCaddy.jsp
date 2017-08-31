@@ -31,6 +31,6 @@
     numero de session:<%=session.getId() %>
 	<hr/>
 	<a href="addProdCaddy.jsp">nouvel ajout caddy</a><br/>
-	<a href="index.html">retour accueil</a><br/>
+	<a href="./old_index.html">retour accueil sans jsf</a><br/>
 </body>
 </html>

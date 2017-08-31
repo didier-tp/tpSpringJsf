@@ -1,1 +1,3 @@
-.entete { background-color: lightgrey; }
+  #header { background-color : lightgrey;}
+  #footer { background-color : lightgrey;}
+  .erreur { color:red; }

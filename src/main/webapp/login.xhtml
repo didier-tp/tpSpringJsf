@@ -8,19 +8,17 @@
 
 <ui:composition template="templates/common.xhtml">
 	
-	<ui:define name="title">tva</ui:define>
+	<ui:define name="title">login</ui:define>
 	
 	<ui:define name="content">
 	
-	   <h:messages errorClass="erreur" />
-   <h:form >
-    ht: <h:inputText value="#{tvaBean.ht}" /> <br/>
-    taux(en%): <h:inputText value="#{tvaBean.taux}" /> <br/>
-    <h:commandButton value="calcul tva" 
-              action="#{tvaBean.calculer}" />
-   </h:form>
-    tva: ${tvaBean.tva} <br/>
-    ttc: <h:outputText value="#{tvaBean.ttc}" />
+	<h:form>
+   username: <h:inputText value="#{loginBean.username}" /> <br/>
+   password: <h:inputText value="#{loginBean.password}" /> <br/>
+  <h:commandButton value="login" 
+        action="#{loginBean.login}" />
+</h:form>
+   message: <span class="erreur"><h:outputText value="#{loginBean.message}" /> </span><br/>
     
 	</ui:define>
 	
