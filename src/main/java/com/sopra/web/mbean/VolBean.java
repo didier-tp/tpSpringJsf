@@ -3,6 +3,8 @@ package com.sopra.web.mbean;
 import java.util.Date;
 import java.util.List;
 
+import javax.faces.event.ValueChangeEvent;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -30,12 +32,25 @@ public class VolBean {
 	@Autowired
 	private ServiceVols serviceVols; //service Spring
 
+	/*
 	public String recupVols(){
 		String suite=null;
 		listeVols = 
 				serviceVols.rechercherVolsAuDepart(
 						villeChoisie, dateDepart);
 		return suite;
+	}*/
+	
+	// onValueChangeListener
+	//    ="#{volBean.recupVolsOnNewChoixVille}"
+	//sur h:selectOneMenu
+	public void recupVolsOnNewChoixVille(ValueChangeEvent evt){
+		this.villeChoisie = (String)evt.getNewValue();
+		System.out.println("dans recupVolsOnNewChoixVille ,villeChoisie= "
+		    +villeChoisie);
+		listeVols = 
+				serviceVols.rechercherVolsAuDepart(
+						villeChoisie, dateDepart);
 	}
 	
 	public List<Localite> getListeLocalites() {

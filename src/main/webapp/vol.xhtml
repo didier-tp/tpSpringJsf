@@ -11,23 +11,24 @@
 	<ui:define name="title">vol</ui:define>
 	
 	<ui:define name="content">
-	
 	   <h:messages errorClass="erreur" />
    <h:form >
     dateDepart: <h:inputText 
          value="#{volBean.dateDepart}" /> <br/>
     villeChoisie: <h:selectOneMenu 
-           value="#{volBean.villeChoisie}" >
+           value="#{volBean.villeChoisie}" 
+           valueChangeListener=
+              "#{volBean.recupVolsOnNewChoixVille}">
+              <f:ajax event="change" render="idTabVols"/>
               <f:selectItems 
                  value="#{volBean.listeLocalites}" 
                  var="v" itemValue="#{v.ville}"
                  itemLabel="#{v.ville} , #{v.aeroport}" />
            </h:selectOneMenu> <br/>
-    <h:commandButton value="recuperer Vols" 
-              action="#{volBean.recupVols}" />
-   </h:form>
+   
+   
    <h3> vols au depart de la ville selectionnée:</h3>
-   <h:dataTable value="#{volBean.listeVols}" 
+   <h:dataTable id="idTabVols" value="#{volBean.listeVols}" 
         var="v" border="1">
      <h:column>
          <h:outputText value="#{v.num}" />
@@ -36,6 +37,8 @@
          <h:outputText value="#{v.prix}" />
      </h:column>
    </h:dataTable>
+   
+   </h:form>
     
     
 	</ui:define>
