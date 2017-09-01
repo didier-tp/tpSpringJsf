@@ -4,44 +4,50 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 
 <ui:composition template="templates/common.xhtml">
-	
+
 	<ui:define name="title">vol</ui:define>
-	
+
 	<ui:define name="content">
-	   <h:messages errorClass="erreur" />
-   <h:form >
-    dateDepart: <h:inputText 
-         value="#{volBean.dateDepart}" /> <br/>
-    villeChoisie: <h:selectOneMenu 
-           value="#{volBean.villeChoisie}" 
-           valueChangeListener=
-              "#{volBean.recupVolsOnNewChoixVille}">
-              <f:ajax event="change" render="idTabVols"/>
-              <f:selectItems 
-                 value="#{volBean.listeLocalites}" 
-                 var="v" itemValue="#{v.ville}"
-                 itemLabel="#{v.ville} , #{v.aeroport}" />
-           </h:selectOneMenu> <br/>
-   
-   
-   <h3> vols au depart de la ville selectionnée:</h3>
-   <h:dataTable id="idTabVols" value="#{volBean.listeVols}" 
-        var="v" border="1">
-     <h:column>
-         <h:outputText value="#{v.num}" />
-     </h:column>
-    <h:column>
-         <h:outputText value="#{v.prix}" />
-     </h:column>
-   </h:dataTable>
-   
-   </h:form>
-    
-    
+		<h:messages errorClass="erreur" />
+		<h:form>
+    dateDepart: <p:calendar value="#{volBean.dateDepart}" />
+			<br />
+    villeChoisie: <h:selectOneMenu value="#{volBean.villeChoisie}"
+				valueChangeListener="#{volBean.recupVolsOnNewChoixVille}">
+				<f:ajax event="change" render="idTabVols" />
+				<f:selectItems value="#{volBean.listeLocalites}" var="v"
+					itemValue="#{v.ville}" itemLabel="#{v.ville} , #{v.aeroport}" />
+			</h:selectOneMenu>
+			<br />
+
+
+			<h3>vols au depart de la ville selectionnée:</h3>
+			<h:dataTable id="idTabVols" value="#{volBean.listeVols}" var="v"
+				border="1">
+				<h:column>
+					<h:outputText value="#{v.num}" />
+				</h:column>
+				<h:column>
+					<h:outputText value="#{v.prix}" />
+				</h:column>
+			</h:dataTable>
+
+			<p:tabView id="tabViewXy">
+				<p:tab title="onglet1">   contenu onglet1   
+				</p:tab>
+				<p:tab title="onglet2">   contenu onglet2  
+				</p:tab>
+			</p:tabView>
+
+
+		</h:form>
+
+
 	</ui:define>
-	
+
 </ui:composition>
 </html>
