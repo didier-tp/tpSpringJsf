@@ -16,8 +16,13 @@
    <h:form >
     dateDepart: <h:inputText 
          value="#{volBean.dateDepart}" /> <br/>
-    villeChoisie: <h:inputText 
-           value="#{volBean.villeChoisie}" /> <br/>
+    villeChoisie: <h:selectOneMenu 
+           value="#{volBean.villeChoisie}" >
+              <f:selectItems 
+                 value="#{volBean.listeLocalites}" 
+                 var="v" itemValue="#{v.ville}"
+                 itemLabel="#{v.ville} , #{v.aeroport}" />
+           </h:selectOneMenu> <br/>
     <h:commandButton value="recuperer Vols" 
               action="#{volBean.recupVols}" />
    </h:form>

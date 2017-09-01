@@ -38,6 +38,14 @@ public class VolBean {
 		return suite;
 	}
 	
+	public List<Localite> getListeLocalites() {
+		if(listeLocalites==null){
+			listeLocalites=
+					serviceVols.rechercherListeLocalites();
+		}
+		return listeLocalites;
+	}
+	
 	
 	public Date getDateDepart() {
 		return dateDepart;
@@ -47,9 +55,7 @@ public class VolBean {
 		this.dateDepart = dateDepart;
 	}
 
-	public List<Localite> getListeLocalites() {
-		return listeLocalites;
-	}
+	
 
 	public void setListeLocalites(List<Localite> listeLocalites) {
 		this.listeLocalites = listeLocalites;
