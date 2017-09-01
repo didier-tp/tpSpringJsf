@@ -18,7 +18,7 @@
 			<br />
     villeChoisie: <h:selectOneMenu value="#{volBean.villeChoisie}"
 				valueChangeListener="#{volBean.recupVolsOnNewChoixVille}">
-				<f:ajax event="change" render="idTabVols" />
+				<f:ajax event="change" render="idPanelIncluantTabVols" />
 				<f:selectItems value="#{volBean.listeLocalites}" var="v"
 					itemValue="#{v.ville}" itemLabel="#{v.ville} , #{v.aeroport}" />
 			</h:selectOneMenu>
@@ -26,21 +26,35 @@
 
 
 			<h3>vols au depart de la ville selectionnée:</h3>
-			<h:dataTable id="idTabVols" value="#{volBean.listeVols}" var="v"
-				border="1">
+			<h:panelGrid id="idPanelIncluantTabVols">
+			 <h:dataTable id="idTabVols" value="#{volBean.listeVols}" var="v"
+				border="1" rendered="#{not empty volBean.listeVols}">
 				<h:column>
+				    <f:facet name="header"><f:verbatim>num</f:verbatim></f:facet>
 					<h:outputText value="#{v.num}" />
 				</h:column>
 				<h:column>
+				    <f:facet name="header"><f:verbatim>prix</f:verbatim></f:facet>
 					<h:outputText value="#{v.prix}" />
 				</h:column>
-			</h:dataTable>
+				<h:column>
+				    <f:facet name="header"><f:verbatim>villeDepart</f:verbatim></f:facet>
+					<h:outputText value="#{v.depart.localite.ville}" />
+				</h:column>
+				<h:column>
+				    <f:facet name="header"><f:verbatim>dateDepart</f:verbatim></f:facet>
+					<h:outputText value="#{v.depart.date}" />
+				</h:column>
+				<h:column>
+				    <f:facet name="header"><f:verbatim>villeArrivee</f:verbatim></f:facet>
+					<h:outputText value="#{v.arrivee.localite.ville}" />
+				</h:column>
+			  </h:dataTable>
+			</h:panelGrid>
 
 			<p:tabView id="tabViewXy">
-				<p:tab title="onglet1">   contenu onglet1   
-				</p:tab>
-				<p:tab title="onglet2">   contenu onglet2  
-				</p:tab>
+				<p:tab title="onglet1">contenu onglet1</p:tab>
+				<p:tab title="onglet2">contenu onglet2</p:tab>
 			</p:tabView>
 
 

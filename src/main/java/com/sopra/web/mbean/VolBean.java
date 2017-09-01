@@ -47,7 +47,7 @@ public class VolBean {
 	public void recupVolsOnNewChoixVille(ValueChangeEvent evt){
 		this.villeChoisie = (String)evt.getNewValue();
 		System.out.println("dans recupVolsOnNewChoixVille ,villeChoisie= "
-		    +villeChoisie);
+		    +villeChoisie );
 		listeVols = 
 				serviceVols.rechercherVolsAuDepart(
 						villeChoisie, dateDepart);
@@ -57,6 +57,8 @@ public class VolBean {
 		if(listeLocalites==null){
 			listeLocalites=
 					serviceVols.rechercherListeLocalites();
+		    //reajustement : insertion d'un speudo-element "pas encore choisi"
+			listeLocalites.add(0, new Localite(0L,"???",""));
 		}
 		return listeLocalites;
 	}
